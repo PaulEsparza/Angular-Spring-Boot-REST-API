@@ -19,4 +19,8 @@ export class BookService {
   createBook(book:Book){
     return this.http.post<Book>(this.URL+"/books",book, {headers: this.HEADERS});
   }
+
+  deleteBook(book:Book){
+    return this.http.delete<Book>(this.URL+"/books/"+book.id, {headers: this.HEADERS});
+  }
 }

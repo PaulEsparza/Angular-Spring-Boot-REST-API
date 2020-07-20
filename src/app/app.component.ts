@@ -36,4 +36,11 @@ export class AppComponent  implements OnInit {
     this.book = {} as Book;
   }
 
+  deleteBook(book:Book){
+    this.service.deleteBook(book).subscribe(data => {
+      //console.log(data);
+      this.getBooks();
+    });
+  }
+
 }

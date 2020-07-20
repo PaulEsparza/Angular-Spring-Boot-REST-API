@@ -47,7 +47,7 @@
             <td>{{ book.description }}</td>
             <td>
               <button class="btn btn-dark m-1">Edit</button>
-              <button class="btn btn-danger">Delete</button>
+              <button (click)="deleteBook(book)" class="btn btn-danger">Delete</button>
             </td>
           </tr>
         </tbody>
