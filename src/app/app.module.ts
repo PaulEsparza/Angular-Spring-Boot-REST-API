@@ -8,10 +8,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { BookService } from './service/book.service';
+import { EditComponent } from './book/edit/edit.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
