@@ -15,4 +15,8 @@ export class BookService {
   getBooks(){
     return this.http.get<Book[]>(this.URL+"/books", {headers: this.HEADERS});
   }
+
+  createBook(book:Book){
+    return this.http.post<Book>(this.URL+"/books",book, {headers: this.HEADERS});
+  }
 }

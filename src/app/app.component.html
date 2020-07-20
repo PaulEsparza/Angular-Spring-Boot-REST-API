@@ -7,19 +7,19 @@
       <div class="card-body">
         <form action="#" method="post">
           <div class="form-group">
-            <input type="text" name="title" class="form-control" placeholder="Title">
+            <input type="text" name="title" class="form-control" placeholder="Title" [(ngModel)]="book.title">
           </div>
           <div class="form-group">
-            <input type="text" name="author" class="form-control" placeholder="Author">
+            <input type="text" name="author" class="form-control" placeholder="Author" [(ngModel)]="book.author">
           </div>
           <div class="form-group">
-            <input type="number" name="price" class="form-control" placeholder="Price">
+            <input type="number" name="price" class="form-control" placeholder="Price" [(ngModel)]="book.price">
           </div>
           <div class="form-group">
-            <textarea name="description" class="form-control" cols="20" rows="5" placeholder="Description"></textarea>
+            <textarea name="description" class="form-control" cols="20" rows="5" placeholder="Description" [(ngModel)]="book.description"></textarea>
           </div>
           <div class="form-group">
-            <button type="submit" class="btn btn-block btn-success">Add</button>
+            <button (click)="createBook()" class="btn btn-block btn-success">Add</button>
           </div>
         </form>
       </div>
