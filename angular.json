@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angularSpringBootREST"
+    }
+  },
+  "defaultProject": "angularSpringBootREST",
+  "cli": {
+    "analytics": false
+  }
 }
