@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent  implements OnInit {
   title = 'angularSpringBootREST';
+  books:Book[];
 
   constructor(private service:BookService){
   }
@@ -18,6 +19,7 @@ export class AppComponent  implements OnInit {
   ngOnInit(): void {
     this.service.getBooks().subscribe(data => {
       console.log(data);
+      this.books = data;
     });
   }
 
