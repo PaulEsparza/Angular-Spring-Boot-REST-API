@@ -46,7 +46,7 @@
             <td>{{ book.price }}</td>
             <td>{{ book.description }}</td>
             <td>
-              <button class="btn btn-dark m-1">Edit</button>
+              <button (click)="editBook(book)" class="btn btn-dark m-1" data-toggle="modal" data-target="#bookModal">Edit</button>
               <button (click)="deleteBook(book)" class="btn btn-danger">Delete</button>
             </td>
           </tr>

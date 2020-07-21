@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Book } from './model/Book';
 import { BookService } from './service/book.service';
-import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,7 @@ export class AppComponent  implements OnInit {
   books:Book[];
   book = {} as Book;
 
-  constructor(private service:BookService){
+  constructor(private service:BookService, private router:Router){
   }
 
   ngOnInit(): void {
@@ -25,6 +25,8 @@ export class AppComponent  implements OnInit {
     this.service.getBooks().subscribe(data => {
       //console.log(data);
       this.books = data;
+    }, error => {
+      console.log(error);
     });
   }
 
@@ -32,15 +34,30 @@ export class AppComponent  implements OnInit {
     this.service.createBook(this.book).subscribe(data => {
       //console.log(data);
       this.getBooks();
+    }, error => {
+      console.log(error);
     });
     this.book = {} as Book;
   }
 
+  editBook(book:Book){
+    /*this.service.getBook(book.id).subscribe(data => {
+      console.log(data);
+    });*/
+
+    localStorage.setItem("idBook", book.id.toString());
+    this.router.navigate(["editBook"]);
+  }
+
   deleteBook(book:Book){
-    this.service.deleteBook(book).subscribe(data => {
-      //console.log(data);
-      this.getBooks();
-    });
+    if(confirm("Are you sure you want to delete it?")){
+      this.service.deleteBook(book).subscribe(data => {
+        //console.log(data);
+        this.getBooks();
+      }, error => {
+        console.log(error);
+      });
+    }
   }
 
 }

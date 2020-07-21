@@ -16,8 +16,16 @@ export class BookService {
     return this.http.get<Book[]>(this.URL+"/books", {headers: this.HEADERS});
   }
 
+  getBook(id:number){
+    return this.http.get<Book>(this.URL+"/books/"+id, {headers: this.HEADERS});
+  }
+
   createBook(book:Book){
     return this.http.post<Book>(this.URL+"/books",book, {headers: this.HEADERS});
+  }
+
+  updateBook(book:Book){
+    return this.http.put<Book>(this.URL+"/books", book, {headers: this.HEADERS});
   }
 
   deleteBook(book:Book){
